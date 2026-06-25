@@ -24,12 +24,12 @@ def segregate0and1(arr):
         j = len(arr) - 1
         while (i<j):
         
-            if arr[i] == 0:
+            if arr[i] == 0:#why do we need to check for zero elements? Because we want to move all zeros to the left. If we find a zero element at index i, we simply move the pointer i forward to check the next element.
                 i+=1
-            elif arr[j] == 1:
+            elif arr[j] == 1:#why do we need to check for one elements? Because we want to move all ones to the right. If we find a one element at index j, we simply move the pointer j backward to check the previous element.
                 j-=1
-            elif arr[i] == 1 and arr[j] == 0:
-                arr[i], arr[j] = arr[j], arr[i]
+            elif arr[i] == 1 and arr[j] == 0: #if we find a one element at index i and a zero element at index j, we swap them to move the zero to the left and the one to the right. After swapping, we move both pointers i and j towards each other to continue checking the next elements.   
+                arr[i], arr[j] = arr[j], arr[i] 
                 i+=1
                 j-=1    
         return arr
